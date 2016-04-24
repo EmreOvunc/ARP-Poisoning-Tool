@@ -36,9 +36,7 @@ def randomMAC():
     return ':'.join(map(lambda x: "%02x" % x, mac))
 
 def randomIP():
-    ip = "192.168.1."
-    last = ".".join(map(str, (random.randint(0, 255)for _ in range(1))))
-    ip = ip+last
+    ip = ".".join(map(str, (random.randint(0, 255)for _ in range(4))))
     return ip
 
 def ARP_Poisoning(ARP_Packet,ICMP_Packet):
