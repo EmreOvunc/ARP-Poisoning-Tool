@@ -32,7 +32,7 @@ def DestinationHW(ARP_Packet):
     ARP_Packet.hwdst = dstMAC
 
 def randomMAC():
-    mac = [ 0x00, 0x16, 0x3e,random.randint(0x00, 0x7f),random.randint(0x00, 0xff),random.randint(0x00, 0xff) ]
+    mac = [ random.randint(0x00, 0xff), random.randint(0x00, 0xff), random.randint(0x00, 0xff),random.randint(0x00, 0x7f),random.randint(0x00, 0xff),random.randint(0x00, 0xff) ]
     return ':'.join(map(lambda x: "%02x" % x, mac))
 
 def randomIP():
