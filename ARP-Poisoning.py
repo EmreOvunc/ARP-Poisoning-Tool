@@ -8,7 +8,6 @@ def main():
 
     ARP_Packet = ARP()
     ICMP_Packet = IP()
-    ARP_Packet.op = 2
 
     Menu(ARP_Packet,ICMP_Packet)
 
