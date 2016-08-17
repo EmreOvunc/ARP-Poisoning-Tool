@@ -11,7 +11,7 @@ def main():
 
     Menu(ARP_Packet,ICMP_Packet)
 
-    print "\n### Emre OVUNC && Ayse Simge OZGER ###\n"
+    print "\n### info@emreovunc.com ###\n"
     
 def SourceIP(ARP_Packet,ICMP_Packet):
     srcIP = raw_input ("Fake IP : ")
