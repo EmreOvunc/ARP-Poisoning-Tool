@@ -71,7 +71,6 @@ def AutoARP(ARP_Packet, ICMP_Packet):
     randIP = randomIP()
     ARP_Packet.psrc = randIP
     ICMP_Packet.src = randIP
-    ARP_Packet.op = 'is-at'
 
     send(ICMP_Packet)
     send(ARP_Packet)
