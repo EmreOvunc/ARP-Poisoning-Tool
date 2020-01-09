@@ -4,12 +4,6 @@
 [![](https://img.shields.io/github/stars/EmreOvunc/ARP-Poisoning-Tool)](https://github.com/EmreOvunc/ARP-Poisoning-Tool/stargazers)
 [![](https://img.shields.io/github/forks/EmreOvunc/ARP-Poisoning-Tool)](https://github.com/EmreOvunc/ARP-Poisoning-Tool/network/members)
 
-Python SYN Flood Attack Tool
-
-You can start SYN Flood attack with this tool.
-
-Simple and efficient.
-
 ## Dependencies
 ```
 apt install python3-scapy
