@@ -36,6 +36,8 @@ News:
 ***Auto ARP Generation Mode is added
 
 ***New version of arp poisoning tool is released. (arp_poisoning_cmd.py)
+
+***You can now enter how many packets you can send.
 ```
 
 ![alt tag](https://emreovunc.com/projects/python3-arp-poisoning-01.png)
