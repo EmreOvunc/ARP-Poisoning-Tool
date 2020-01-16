@@ -20,6 +20,7 @@ cd ARP-Poisoning-Tool
 
 ```
 python3 ARP-Poisoning.py
+python3 arp_poisoning_cmd.py --help
 ```
 
 
