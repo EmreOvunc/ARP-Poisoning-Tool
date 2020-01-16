@@ -22,7 +22,7 @@ cd ARP-Poisoning-Tool
 python3 ARP-Poisoning.py
 python3 arp_poisoning_cmd.py --help
 ```
-
+![alt tag](https://emreovunc.com/projects/python3-arp-poisoning-02.png)
 
 It uses SCAPY to generate fake ICMP and ARP packets.
 The things which you need only are Destination IP and MAC address.
@@ -32,8 +32,12 @@ The things which you need only are Destination IP and MAC address.
 It creates entries on target's ARP Table.
 
 ```
-News v1.2:
-***Auto ARP Generation Mode is added***
+News:
+***Auto ARP Generation Mode is added
+
+***New version of arp poisoning tool is released. (arp_poisoning_cmd.py)
 ```
+
+![alt tag](https://emreovunc.com/projects/python3-arp-poisoning-01.png)
 
 ![alt tag](https://emreovunc.com/projects/ARP-Poisoning.jpeg)
