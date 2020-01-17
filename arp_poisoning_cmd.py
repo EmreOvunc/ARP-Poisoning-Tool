@@ -58,24 +58,23 @@ def main():
     else:
         print('''usage: arp_poisoning_cmd.py [-h] [--target-ip TARGET_IP]
                             [--target-mac TARGET_MAC] [--fake-ip FAKE_IP]
-                            [--fake-mac FAKE_MAC] [--version]
-                optional arguments:
-                  -h, --help            show this help message and exit
-                  --target-ip TARGET_IP, -ti TARGET_IP
-                                        target IP address
-                  --target-mac TARGET_MAC, -tm TARGET_MAC
-                                        target MAC address
-                  --fake-ip FAKE_IP, -fi FAKE_IP
-                                        fake IP address -spoofed-
-                  --fake-mac FAKE_MAC, -fm FAKE_MAC
+                            [--fake-mac FAKE_MAC] [--count COUNT] [--version]
+optional arguments:
+  -h, --help            show this help message and exit
+  --target-ip TARGET_IP, -ti TARGET_IP
+                        target IP address
+  --target-mac TARGET_MAC, -tm TARGET_MAC
+                        target MAC address
+  --fake-ip FAKE_IP, -fi FAKE_IP
+                        fake IP address -spoofed-
+  --fake-mac FAKE_MAC, -fm FAKE_MAC
                         fake MAC address -spoofed-
-                  --count COUNT, -c COUNT
+  --count COUNT, -c COUNT
                         number of packets
-                  --version, -v         show program's version number and exit
-                
-                Usage: python3 arp_poisoning_cmd.py -ti 10.20.30.40 -tm 11:22:33:aa:bb:cc -fi
-                10.20.30.41 -fm aa:bb:cc:11:22:33 -c 1
-                ''')
+  --version, -v         show program's version number and exit
+
+Usage: python3 arp_poisoning_cmd.py -ti 10.20.30.40 -tm 11:22:33:aa:bb:cc -fi
+10.20.30.41 -fm aa:bb:cc:11:22:33 -c 1''')
         exit()
 
 
